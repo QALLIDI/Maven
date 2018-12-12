@@ -57,17 +57,17 @@
    <repositories>
     <repository>
       <id>maven-group</id>
-      <url>http://localhost:8081/repository/maven-group/</url>
+      <url>http://localhost:8081/repository/qallidi-elaaychouchi-repo/</url>
     </repository>
   </repositories>
 <distributionManagement>
     <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>http://localhost:8081/repository/maven-snapshots/</url>
+      <url>http://localhost:8081/repository/qallidi-elaaychouchi-repo-snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>nexus-releases</id>
-      <url>http://localhost:8081/repository/maven-releases/</url>
+      <url>http://localhost:8081/repository/qallidi-elaaychouchi-repo-releases/</url>
     </repository>
   </distributionManagement>
 </project>
