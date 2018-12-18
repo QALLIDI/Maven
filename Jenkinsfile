@@ -29,27 +29,17 @@ pipeline {
             steps {
                 bat 'mvn clean site'
             }
-            post {
-                success {
-                    bat "echo 'site creation successed'"
-                }
-                failure {
-                    bat "echo 'site creation failed !'"
-                }
-            }
+          }
         }
         stage('Cobertura') {
             steps {
                 bat 'mvn cobertura:cobertura'
             }
-              post {
-                 success {
-                    bat  "echo 'Publishing Cobertura Report successed !'"
-                }
-                 failure {
-                     bat  "echo 'Publishing Cobertura Report failed !'"
-                }
-            }
+             post {
+        always {
+            cobertura coberturaReportFile: '**/target/site/cobertura/coverage.xml'
+            cleanWs()
+             }
         }
       } 
 }       
