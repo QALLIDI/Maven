@@ -30,7 +30,6 @@ pipeline {
                 bat 'mvn clean site'
             }
           }
-        }
         stage('Cobertura') {
             steps {
                 bat 'mvn cobertura:cobertura'
@@ -42,4 +41,5 @@ pipeline {
                         }
                   }
         }
-      }    
+      }
+} 
