@@ -25,9 +25,14 @@ pipeline {
                 }
             }
         }
+        stage('Cobertura') {
+            steps {
+                bat 'mvn cobertura:cobertura'
+            }
+        }
         stage('Deploy') {
             steps {
-                bat 'make publish'
+                bat 'mvn deploy'
             }
         }
       } 
