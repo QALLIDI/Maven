@@ -30,10 +30,5 @@ pipeline {
                 bat 'mvn cobertura:cobertura'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'mvn deploy'
-            }
-        }
       } 
 }       
