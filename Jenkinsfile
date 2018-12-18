@@ -25,6 +25,19 @@ pipeline {
                 }
             }
         }
+        stage('Site') {
+            steps {
+                bat 'mvn clean site'
+            }
+            post {
+                success {
+                    bat "echo 'site creation successed'"
+                }
+                failure {
+                    bat "echo 'site creation failed !'"
+                }
+            }
+        }
         stage('Cobertura') {
             steps {
                 bat 'mvn cobertura:cobertura'
