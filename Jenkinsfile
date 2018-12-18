@@ -6,7 +6,7 @@ pipeline {
        }
       stages {
           stage('Build') {
-              stops {
+              steps {
                 bat 'mvn install'
               }
               post {
