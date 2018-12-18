@@ -16,15 +16,13 @@ pipeline {
               }  
           }
           stage('Deploy') {
-              steps {
-                bat 'mvn deploy'
-              }
-              post {
-                success {
-                junit 'target/surefire-reports/**/*.xml'
+            steps {
+                timeout(time: 3, unit: 'MINUTES') {
+                    retry(5) {
+                        sh './flakey-deploy.sh'
+                    }
                 }
-              }  
-          }
+            }
          stage('Test') {
             steps {
                 bat 'mvn test'
