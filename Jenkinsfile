@@ -30,5 +30,10 @@ pipeline {
                 bat 'mvn cobertura:cobertura'
             }
         }
+            stage('Deploy') {
+            steps {
+                bat 'mvn clean deploy -Dmaven.test.skip=true'
+            }
+        }
       } 
 }       
