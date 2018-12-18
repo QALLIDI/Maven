@@ -4,9 +4,7 @@ pipeline {
           maven 'Maven 3.5.2'
           jdk 'jdk1.8.0_144'
        }
-       
-       stages (
-        
+      stages {
           stage('build') {
               stops {
                 bat 'mvn install'
@@ -17,5 +15,5 @@ pipeline {
                 }
               }  
           }
-       )  
+      } 
 }       
