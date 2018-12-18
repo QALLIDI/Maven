@@ -29,6 +29,14 @@ pipeline {
             steps {
                 bat 'mvn clean site'
             }
+              post {
+                    success {
+                     bat "echo 'site has been created'"     
+                    }
+                    failure {
+                     bat "echo 'site has not been created'"     
+                    }
+              }
           }
         stage('Cobertura') {
             steps {
