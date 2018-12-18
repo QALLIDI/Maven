@@ -13,6 +13,7 @@ public class App
     public static void main(String[] args) {
         System.out.println(new App().getMessage());
         System.out.println("coucou");
+        System.out.println("coucou 2");
     }
 
     private final String getMessage() {
