@@ -29,10 +29,13 @@ pipeline {
             steps {
                 bat 'mvn cobertura:cobertura'
             }
-        }
-            stage('Deploy') {
-            steps {
-                bat 'mvn clean deploy -Dmaven.test.skip=true'
+              post {
+                 success {
+                    bat  "echo 'Publishing Cobertura Report successed !'"
+                }
+                 failure {
+                     bat  "echo 'Publishing Cobertura Report failed !'"
+                }
             }
         }
       } 
