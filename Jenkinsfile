@@ -36,8 +36,32 @@ pipeline {
                     failure {
                      bat "echo 'site has not been created'"     
                     }
-              }
-          }
+              } 
+        stage('Cobertura') {
+            steps {
+                bat 'mvn cobertura:cobertura'
+            }
+             post {
+                  always {
+                        cobertura coberturaReportFile: '**/target/site/cobertura/coverage.xml'
+                        cleanWs()
+                        }
+                  }
+        }
+      }
+      
+       stage('Sonarqube analysis') {
+    steps {
+    script {
+             scannerHome = tool 'SonarScanner';
+        }
+     withSonarQubeEnv('SonarQube') {
+       bat "${scannerHome}\\bin\\sonar-scanner.bat" 
+    }
+
+    } 
+        }
+                     }
         stage("build & SonarQube analysis") {
  agent any
  steps {
@@ -53,17 +77,4 @@ pipeline {
  }
  }
  }
-  
-        stage('Cobertura') {
-            steps {
-                bat 'mvn cobertura:cobertura'
-            }
-             post {
-                  always {
-                        cobertura coberturaReportFile: '**/target/site/cobertura/coverage.xml'
-                        cleanWs()
-                        }
-                  }
-        }
-      }
 } 
