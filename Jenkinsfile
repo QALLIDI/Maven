@@ -25,16 +25,16 @@ pipeline {
                 }
             }
         }
-     stage('Sonarqube analysis') {
+            stage('Sonarqube analysis') {
     steps {
     script {
              scannerHome = tool 'SonarScanner';
         }
      withSonarQubeEnv('SonarQube') {
        bat "${scannerHome}\\bin\\sonar-scanner.bat" 
-            }
+    }
 
-                  } 
+    } 
         }
         stage('Site') {
             steps {
