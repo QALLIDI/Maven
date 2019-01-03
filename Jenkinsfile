@@ -37,6 +37,7 @@ pipeline {
                      bat "echo 'site has not been created'"     
                     }
               } 
+        }
         stage('Cobertura') {
             steps {
                 bat 'mvn cobertura:cobertura'
