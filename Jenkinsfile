@@ -49,6 +49,13 @@ pipeline {
                     }
               } 
         }
+        stage('Ga') {
+  steps { tling
+   bat 'mvn gatling:test site'
+    
+      gatlingArchive()
+    }
+  }    
         stage('Cobertura') {
             steps {
                 bat 'mvn cobertura:cobertura'
