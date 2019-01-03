@@ -49,8 +49,8 @@ pipeline {
                     }
               } 
         }
-        stage('Ga') {
-  steps { tling
+        stage('Gatling') {
+  steps { 
    bat 'mvn gatling:test site'
     
       gatlingArchive()
