@@ -14,6 +14,32 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+	 	<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-pmd-plugin -->
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-pmd-plugin</artifactId>
+    <version>3.11.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.google.code.findbugs/findbugs -->
+<dependency>
+    <groupId>com.google.code.findbugs</groupId>
+    <artifactId>findbugs</artifactId>
+    <version>3.0.1</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle -->
+<dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>8.16</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.jenkins-ci.plugins/javadoc -->
+<dependency>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>javadoc</artifactId>
+    <version>1.4</version>
+    <scope>test</scope>
+</dependency>
+
 	</dependencies>
 	
 <build>
